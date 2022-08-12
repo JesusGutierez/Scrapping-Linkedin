@@ -24,6 +24,7 @@ class AxiosService {
       const { data } = await this.axiosInstance.get(url,
         { headers });
 
+      console.log('data', data);
       return data;
     } catch (error) {
       // eslint-disable-next-line no-console
