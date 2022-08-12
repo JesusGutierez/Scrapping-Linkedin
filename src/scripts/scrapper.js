@@ -6,17 +6,17 @@ import {
 import { $, $$ } from '../utils/selectors';
 import { getCookie } from '../utils/cookie';
 import { waitForScroll, waitForSelector } from '../utils/waitFor';
-
+import { parseDate } from '../utils/dates';
 
 async function getContacInfo() {
   try {
-    const { baseUrl, contactInfo, api } = configUrls;
+    const { baseUrl, urlContactInfo, api } = configUrls;
     const token = getCookie('JSESSIONID', document.cookie);
 
     const [contactInfoName] = $(profileSelectors.contactInfo).href
       .match(/in\/.+\/o/g) ?? [];
 
-    const contactInfoURL = baseUrl + api + contactInfo(contactInfoName);
+    const contactInfoURL = baseUrl + api + urlContactInfo(contactInfoName);
 
     // To- Do: reemplazar con axios instance y probar
     const { data: { data } } = await axios.get(contactInfoURL, {
@@ -25,7 +25,6 @@ async function getContacInfo() {
         'csrf-token': token,
       }
     });
-
     return data;
   } catch (error) {
     // eslint-disable-next-line no-console
@@ -54,7 +53,7 @@ function getEspecificInfo (selector) {
           startDate,
           endDate
         ] = (parsedRawDate?.replace(/\s|·/g,'').split('-') ?? [])
-          .map(rawDateElement => parsedRawDate(rawDateElement));
+          .map(rawDateElement => parseDate(rawDateElement));
 
         return { title, enterprise, startDate, endDate };
       }
@@ -90,6 +89,8 @@ async function scrap () {
       ...visibleData,
       contactInfo,
     };
+
+    console.log('profile', profile);
 
     // eslint-disable-next-line no-undef
     const port = chrome.runtime.connect({ name: 'secureChannelScrapProfile' });

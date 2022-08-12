@@ -13,7 +13,7 @@ import { addUrlParams, getUrlParams } from './utils/urls';
 // eslint-disable-next-line no-undef
 chrome.action.onClicked.addListener((tab)=> {
   inyectScrapCandidates(tab.id);
-  // inyectScript('scripts/scrapper.js', tab.id);
+  inyectScript('scripts/scrapper.js', tab.id);
 });
 
 // eslint-disable-next-line no-undef
@@ -97,7 +97,9 @@ const _portOnmessageHandler = async (msg, port) => {
     break;
   case secureChannels.scrapv1:{
     db.profiles.add(profile);
+    console.log('urlsRaw', await db.urlsCandidate.toArray());
     const [urlsRaw] = await db.urlsCandidate.toArray();
+    console.log('urlsRaw', urlsRaw);
     const newTabId = await deleteAndCreateTab(tabId, urlsRaw.urls[2]);
 
     inyectScript('scripts/scrapper.js', newTabId);

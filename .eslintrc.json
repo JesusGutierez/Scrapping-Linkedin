@@ -34,7 +34,7 @@
             "always"
         ],
         "no-invalid-regexp":"error",
-        "key-spacing":["error", {"align" :"colon"}],
+        /* "key-spacing":["error", {"align" :"colon"}], */
         "no-trailing-spaces":"error"
     }
 }

@@ -19,7 +19,7 @@ esbuild.build({
   bundle        : true,
   outdir        : 'dist',
   // target: 'chrome',
-  minify        : !(DEPLOYMENT==='DEV'),
+  /* minify        : !(DEPLOYMENT==='DEV'), */
   allowOverwrite: true,
   logLevel      : DEPLOYMENT==='DEV'? 'debug' :'silent',
   // inject:['config/global.js']
