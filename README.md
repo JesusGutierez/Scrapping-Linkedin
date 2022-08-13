@@ -19,4 +19,4 @@ Ir a **chrome://extensions**, activar el modo desarrollador y dar click en
 ```
   Cargar extensión sin empaquetar
 ```
-Se abrira una ventana y tendremos que seleccionar la carpeta dist, al elegirla se iniciara el plugin.
+Se abrira una ventana y tendremos que seleccionar la carpeta dist, al elegirla se añadira el plugin.
