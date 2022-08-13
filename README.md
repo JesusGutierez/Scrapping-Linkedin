@@ -1,12 +1,13 @@
-# KROWDY BOOTCAMP
+# RETO KROWDY SCRAPPING
 
-instalar dependencias
+
+Instalar dependencias
 
 ```bash
   yarn
 ```
 
-iniciar proyecto
+Generar carpeta de plugin, en el proyecto aparecera una carpeta **dist**
 
 ```bash 
   yarn dev
@@ -14,10 +15,8 @@ iniciar proyecto
 
 Luego de inciar el proyecto copiar el contenido de lib adentro de la carpeta dist
 
-Ir a
-
+Ir a **chrome://extensions**, activar el modo desarrollador y dar click en
 ```
-  chrome://extensions
+  Cargar extensión sin empaquetar
 ```
-
-para cargar la extension ahi, ubicar la carpeta dist para cargar, no src
+Se abrira una ventana y tendremos que seleccionar la carpeta dist, al elegirla se iniciara el plugin.
