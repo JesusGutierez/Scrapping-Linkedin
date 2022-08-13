@@ -100,9 +100,9 @@ const _portOnmessageHandler = async (msg, port) => {
     console.log('urlsRaw', await db.urlsCandidate.toArray());
     const [urlsRaw] = await db.urlsCandidate.toArray();
     console.log('urlsRaw', urlsRaw);
-    const newTabId = await deleteAndCreateTab(tabId, urlsRaw.urls[2]);
+    /* const newTabId = await deleteAndCreateTab(tabId, urlsRaw.urls[2]);
 
-    inyectScript('scripts/scrapper.js', newTabId);
+    inyectScript('scripts/scrapper.js', newTabId); */
 
     break;
   }

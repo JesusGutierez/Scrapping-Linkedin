@@ -7,6 +7,7 @@ import { $, $$ } from '../utils/selectors';
 import { getCookie } from '../utils/cookie';
 import { waitForScroll, waitForSelector } from '../utils/waitFor';
 import { parseDate } from '../utils/dates';
+import { postProfile } from '../service/apiProfiles';
 
 async function getContacInfo() {
   try {
@@ -91,6 +92,8 @@ async function scrap () {
     };
 
     console.log('profile', profile);
+    await postProfile(profile);
+    console.log('terminado el post de perfil');
 
     // eslint-disable-next-line no-undef
     const port = chrome.runtime.connect({ name: 'secureChannelScrapProfile' });
